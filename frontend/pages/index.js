@@ -1,8 +1,6 @@
 import React from 'react';
 import ResetStyle from "@global/resetStyle";
-import Button, {ButtonSize, ButtonTheme, ButtonType} from '@components/atoms/button/defaultButton.jsx'
-import Input, {InputType} from '@components/atoms/input/defaultInput'
-import Image from '../components/atoms/img/image'
+import ModalDiv from '../components/atoms/div/modal/defaultModal'
 
 class IndexPage extends React.PureComponent {
 
@@ -34,22 +32,8 @@ class IndexPage extends React.PureComponent {
     return (
         <>
           <ResetStyle/>
-          <div>styled component</div>
-          <Input type={InputType.TEXT}
-                 name={'checkbox'}
-                 value={this.state.value}
-                 id={'id'}
-                 onChange={this.onChange}
-                 autoCorrect={'off'}
-                 autoComplete={'off'}/>
-          <Button type={ButtonType.BUTTON}
-                  onClick={this.onClickHandler}
-                  theme={ButtonTheme.DEFAULT}
-                  active={this.state.active}
-                  size={ButtonSize.SMALL}>
-            원자
-          </Button>
-          <Image/>
+          <ModalDiv>
+          </ModalDiv>
         </>
     )
   }

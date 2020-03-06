@@ -79,7 +79,7 @@ module.exports = function CustomProgressBar(options) {
 
   const barLeft = chalk.red.bold('[');
   const barRight = chalk.red.bold(']');
-  const preamble = chalk.cyan.bold('빌드 중 : ') + barLeft;
+  const preamble = chalk.cyan.bold('웹팩 빌드 중 : ') + barLeft;
   const barFormat = options.format || preamble + ':bar' + barRight + chalk.green.bold(' :percent');
   const summary = options.summary !== false;
   const summaryContent = options.summaryContent;
@@ -132,7 +132,7 @@ module.exports = function CustomProgressBar(options) {
       bar.terminate();
 
       if (summary) {
-        stream.write(chalk.green.bold('빌드에 걸린 시간 :' + buildTime + '\n\n'));
+        stream.write(chalk.green.bold('웹팩 빌드에 걸린 시간 : ' + buildTime + '\n\n'));
       } else if (summaryContent) {
         stream.write(summaryContent + '(' + buildTime + ')\n\n');
       }

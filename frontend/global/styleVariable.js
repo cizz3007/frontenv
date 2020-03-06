@@ -8,7 +8,7 @@ import styled from 'styled-components';
  * */
 
 const white = '#fff';
-const black = '#222' | '#1c1c1c';
+const black = '#222';
 const gray = '#e6e7ee';
 const indigo = '#0c1f3b';
 const warmGray = '#f0f0f0';
@@ -61,18 +61,18 @@ const font_weight_bolder = 700;
 const font_weight_boldest = 800;
 
 //Z-index 우선순위
-const z_index_bottom = -1;
-const z_index1 = 1;
-const z_index2 = 2;
-const z_index3 = 3;
-const z_index4 = 4;
-const z_index5 = 5;
-const z_index6 = 6;
-const z_index7 = 7;
-const z_index8 = 8;
-const z_index9 = 9;
-const z_index10 = 10;
-const z_index_max = 99;
+export const zIndex_bottom = -1;//hide
+export const zIndex1 = 1;
+export const zIndex2 = 2;
+export const zIndex3 = 3;
+export const zIndex4 = 4;
+export const zIndex5 = 5;
+export const zIndex6 = 6;
+export const zIndex7 = 7; //screenBlock
+export const zIndex8 = 8; //modal
+export const zIndex9 = 9;
+export const zIndex10 = 10;
+export const zIndex_max = 99;//always visible
 
 
 
