@@ -2,108 +2,145 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CustomProgressBar = require('./progress.config');
+const chunkOption = require('./config/webpackChunk');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-module.exports = {
-  stats: 'minimal',
-  entry    : {
-    'app': ['@babel/polyfill', './frontend/index.js'],
-  },
-  output   : {
-    path         : path.join(__dirname, 'dist'),
-    filename     : '[name].bundle.js',
-    chunkFilename: "[id].[chunkhash].js",
-    publicPath   : path.join(__dirname, 'dist')
-  },
-  cache    : true,
-  mode     : process.env.NODE_ENV,
-  devtool  : "source-map",
-  resolve  : {
-    extensions: [".ts", ".tsx", ".js", ".json", '.jsx'],
-    alias     : {
-      '@global'    : path.resolve(__dirname, 'frontend/global'),
-      '@apis'      : path.resolve(__dirname, 'frontend/apis'),
-      '@pages'     : path.resolve(__dirname, 'frontend/pages'),
-      '@components': path.resolve(__dirname, 'frontend/components')
-    }
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname), //index.html의 위치
-    compress   : true,
-    port       : 9000,
-    hot        : true,
-    open       : false
-  },
-  module   : {
-    rules: [
-      {
-        test   : /\.jsx?$/,
-        loader : 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          rootMode: 'upward' //upward:root의 babel.config.js를 참조,없으면 에러 //default = root
-        }
+const envResult = require('dotenv').config({
+  path: __dirname + '/.env'
+});
+
+try {
+  if (envResult.error) {
+    console.error('.env 파일을 불러들이지 못하였습니다.');
+    throw envResult.error;
+  }
+
+  const isDevMode = process.env.NODE_ENV === 'development';
+
+  module.exports = {
+    stats    : isDevMode ? 'minimal':'verbose',
+    entry    : {
+      'app': ['@babel/polyfill', './index.js'],
+    },
+    output   : {
+      path         : path.join(__dirname, '../dist'),
+      filename     : isDevMode? '[name].bundle.js':'[name].bundle.[hash].js',
+      chunkFilename: "[id].[chunkhash].js",
+      publicPath   : 'dist'
+    },
+    cache    : true,
+    mode     : process.env.NODE_ENV,
+    devtool  : "source-map",
+    resolve  : {
+      extensions: [".ts", ".tsx", ".js", ".json", '.jsx'],
+      alias     : {
+        '@global'    : path.resolve(__dirname, './global'),
+        '@apis'      : path.resolve(__dirname, './apis'),
+        '@pages'     : path.resolve(__dirname, './pages'),
+        '@components': path.resolve(__dirname, './components'),
+        '@images': path.resolve(__dirname, './images'),
+      }
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, '../'), //index.html의 위치
+      compress   : true,
+      host       : process.env.HOST,
+      port       : process.env.PORT,
+      hot        : true,
+      open       : false,
+      historyApiFallback:true,
+      inline:true,
+      before     : function (app, server) {
+        let _info = server.log.info;
       },
-      {
-        enforce: "pre",
-        test   : /\.js$/,
-        loader : "source-map-loader"
-      },
-      {
-        test   : /\.(jpe?g|png)$/i,
-        loader : 'file-loader',
-        options: {
-          hash  : 'sha512',
-          digest: 'hex',
-          name  : '[hash].[ext]',
+      after      : function (app, server) {
+      }
+    },
+    module   : {
+      rules: [
+        {
+          test   : /\.jsx?$/,
+          loader : 'babel-loader',
+          exclude: /node_modules/,
+          options: {
+            rootMode: 'upward' //upward:root의 babel.config.js를 참조,없으면 에러 //default = root
+          }
         },
-      },
-      // { //styled컴포넌트라 필요없음
-      //   test: /\.(sa|sc|c)ss$/,
-      //   use : [
-      //     {
-      //       loader: 'style-loader'
-      //     },
-      //     {
-      //       loader : 'css-loader',
-      //       options: {
-      //         modules       : true,
-      //         localIdentName: '[hash:base64:11]',
-      //         namedexport   : true,
-      //         sourceMap     : true,
-      //         minimize      : true,
-      //       }
-      //     },
-      //   ]
-      // },
-    ]
-  },
-  plugins  : [
-    new CustomProgressBar(),
-    new webpack.DefinePlugin({
-      'process.env'   : {
-        'MODE'                 : JSON.stringify(process.env.NODE_ENV),
-        'SERVER'               : JSON.stringify(process.env.AWS_EC2_IP),
-        'GOOGLE_CLIENT_ID'     : JSON.stringify(process.env.GOOGLE_CLIENT_ID),
-        "KAKAO_REST_KEY"       : JSON.stringify(process.env.KAKAO_REST_KEY),
-        'FULL_PAGE_LICENSE_KEY': JSON.stringify(process.env.FULL_PAGE_LICENSE_KEY)
-      },
-      APP_SECRET_CHECK: JSON.stringify(process.env.APP_SECRET_CHECK)
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, 'index.html'),
-      inject  : true,
-      hash    : true,
-      minify  : {
-        collapseWhitespace           : true,
-        removeComments               : true,
-        removeRedundantAttributes    : false,
-        removeScriptTypeAttributes   : false,
-        removeStyleLinkTypeAttributes: false,
-        useShortDoctype              : true
-      },
-      template: './template.html',
-      title   : '트립비토즈 테스트',
-    }),
-  ]
-};
+        {
+          enforce: "pre",
+          test   : /\.js$/,
+          loader : "source-map-loader"
+        },
+        {
+          test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: 'url-loader',
+          options: {
+            name: '[hash:base64:8].[ext]',
+            publicPath: './dist/images/',
+            outputPath: '../dist/images/',
+            limit: isDevMode ? 500000 : 500000, //1000000b = 1mb
+          }
+        },
+        // { //styled컴포넌트라 필요없지만 혹시 다른 라이브러리에서 필요할 수도 있으니깐 주석처리
+        //   test: /\.(sa|sc|c)ss$/,
+        //   use : [
+        //     {
+        //       loader: 'style-loader'
+        //     },
+        //     {
+        //       loader : 'css-loader',
+        //       options: {
+        //         modules       : true,
+        //         localIdentName: '[hash:base64:11]',
+        //         namedexport   : true,
+        //         sourceMap     : true,
+        //         minimize      : true,
+        //       }
+        //     },
+        //   ]
+        // },
+      ]
+    },
+    plugins  : [
+      new CustomProgressBar(),
+      new webpack.DefinePlugin({
+        'process.env'   : {
+          'MODE'                 : JSON.stringify(process.env.NODE_ENV),
+          'HOST'                 : JSON.stringify(process.env.HOST),
+          'PORT'                 : JSON.stringify(process.env.PORT),
+          'AUTHORIZATION'        : JSON.stringify(process.env.AUTHORIZATION),
+          'SERVER'               : JSON.stringify(process.env.SERVER),
+          'GOOGLE_CLIENT_ID'     : JSON.stringify(process.env.GOOGLE_CLIENT_ID),
+          "KAKAO_REST_KEY"       : JSON.stringify(process.env.KAKAO_REST_KEY),
+          'FULL_PAGE_LICENSE_KEY': JSON.stringify(process.env.FULL_PAGE_LICENSE_KEY)
+        },
+        APP_SECRET_CHECK: JSON.stringify(process.env.APP_SECRET_CHECK)
+      }),
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, '../index.html'),
+        inject  : true,
+        hash    : true,
+        minify  : {
+          collapseWhitespace           : true,
+          removeComments               : true,
+          removeRedundantAttributes    : false,
+          removeScriptTypeAttributes   : false,
+          removeStyleLinkTypeAttributes: false,
+          useShortDoctype              : true
+        },
+        template: './template.html',
+        title   : '트립비토즈',
+      }),
+      !isDevMode && new CleanWebpackPlugin({
+        dry: false,
+        verbose: true,
+        cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist/**/*')],
+        dangerouslyAllowCleanPatternsOutsideProject:true
+      }),
+    ].filter(Boolean),
+    ...!isDevMode && chunkOption
+  };
+} catch (e) {
+  console.warn('webpack error:', e)
+}

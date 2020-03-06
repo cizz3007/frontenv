@@ -1,0 +1,25 @@
+{
+  "name": "buildtest",
+  "version": "0.0.1",
+  "description": "chk",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo '스크립트 test 실행'&& exit 0",
+    "start": "cd frontend && cross-env NODE_ENV=development && webpack --mode=development && webpack-dev-server",
+    "build": "cd frontend && cross-env NODE_ENV=development && webpack --mode=development && exit 0",
+    "production": "cd frontend && cross-env NODE_ENV=production && webpack --mode=production && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cizz3007/git.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cizz3007/git/issues"
+  },
+  "homepage": "https://github.com/cizz3007/git#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
+}

@@ -1,0 +1,10 @@
+
+# node_modules
+node_modules
+# 배포 파일
+dist
+# 백엔드 파
+backend
+# 인텔리 j config
+.idea
+
