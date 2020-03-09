@@ -6,6 +6,7 @@ const DefaultInputStyle = styled.input`
     color:${props => props.length >= 4 ? aLinkHoverColor : defaultInputColor};
     letter-spacing:${props => props.length >= 4 ? '6px' : '1px'};
     transition:all 0.24s ease-out;
+    ${props => props.css}
 `
 
 export default DefaultInputStyle

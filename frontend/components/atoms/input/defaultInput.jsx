@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultInputStyle from '@components/atoms/input/inputStyle'
+import DefaultInputStyle from '@components/atoms/input/styled'
 import PropsTypes from 'prop-types';
 
 export const InputType = {
@@ -33,23 +33,35 @@ const Input = (props) => {
     disabled,
     autoCorrect,
     autoComplete,
-    autocapitalize,
+    autoCapitalize,
     name,
     id,
     value,
-    onChange
+    onChange,
+    onFocus,
+    onBlur,
+    onClick,
+    min,
+    max,
+    style
   } = props
 
   return (
       <DefaultInputStyle type={type}
                          name={name}
                          onChange={onChange}
+                         onFocus={onFocus}
+                         onBlur={onBlur}
+                         onClick={onClick}
+                         css={style}
                          id={id}
-                         length={value.length}
+                         length={value?.length}
                          disabled={disabled}
                          value={value}
+                         min={min}
+                         max={max}
                          autoCorrect={autoCorrect}
-                         autoCapitalize={autocapitalize}
+                         autoCapitalize={autoCapitalize}
                          autoComplete={autoComplete}>
         {children}
       </DefaultInputStyle>
@@ -60,6 +72,15 @@ Input.defaultProps = {
   autoCorrect:'off',
   autoCapitalize:'off',
   autoComplete:'off',
+}
+
+Input.propTypes = {
+  name:PropsTypes.string.isRequired,
+  id:PropsTypes.string,
+  onBlur:PropsTypes.func,
+  onFocus:PropsTypes.func,
+  onClick:PropsTypes.func,
+  onChange:PropsTypes.func,
 }
 
 export default Input;

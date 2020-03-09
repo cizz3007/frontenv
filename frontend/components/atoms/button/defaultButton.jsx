@@ -1,5 +1,5 @@
 import React from 'react';
-import {DefaultButton} from './buttonStyles';
+import {DefaultButtonStyled} from './styled';
 import PropTypes from 'prop-types';
 
 export const ButtonType = {
@@ -29,12 +29,13 @@ const Button = (props) => {
     classname,
     disabled,
     active,
+    style,
   } = props
 
   return (
-      <DefaultButton type={type} onClick={onClick} disabled={disabled} active={active}>
+      <DefaultButtonStyled type={type} onClick={onClick} disabled={disabled} active={active} css={style}>
         {children}
-      </DefaultButton>
+      </DefaultButtonStyled>
   )
 }
 

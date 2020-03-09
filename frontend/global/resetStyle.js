@@ -13,6 +13,7 @@ const ResetStyle = createGlobalStyle`
       -ms-word-break: keep-all;
       word-break: keep-all;
     }
+    .
     
     a {
       color: #333;

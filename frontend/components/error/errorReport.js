@@ -1,42 +1,44 @@
 import React from 'react';
 
 class ErrorBoundary extends React.PureComponent {
-  state = {
-    hasError: false,
-    error: null,
-    info: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {hasError: false, error: null, errorInfo: null};
+  }
 
-  componentDidCatch(error, info) {
-    console.error(error);
-    console.warn('## 에러_ :', info);
-    this.setState({hasError: true, error: error, info: info});
-    // API로 에러 보고
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo)
+    this.setState({
+      hasError : true,
+      error    : error,
+      errorInfo: errorInfo
+    })
+
+    alert('error 서버로 보고')
   }
 
   render() {
-    if (this.state.hasError) {
+
+    const {
+      hasError,
+      errorInfo,
+    } = this.state;
+
+    const {
+      children
+    } = this.props;
+
+    if (hasError) {
       // You can render any custom fallback UI
       return <>
-        <div className={styles['__error-boundary-component']}>
-          <h1>ERROR BOUNDARY CATCH..</h1>;
-          <pre>{JSON.stringify(this.state.info)}</pre>
-          <p>죄송합니다. 에러가 발생했습니다. 이 에러는 자동으로 보고되며 조치를 취하겠습니다</p>
-          <button role={'button'} type={'button'} onClick={(e) => {
-            this.setState({
-              hasError: false,
-              error:null,
-              info:null,
-            });
-            window.location.replace('/');
-          }}>메인 페이지로</button>
-        </div>
-        {
-          this.props.children
-        }
+        <div>{JSON.stringify(errorInfo)}</div>
+        <button type={'button'} onClick={()=>{
+          window.location.reload();
+        }}>리로드</button>
       </>
     }
-    return this.props.children;
+
+    return children;
   }
 }
 

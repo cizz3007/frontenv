@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import {blackColor, whiteColor} from '@global/styleVariable'
+import {blackColor, whiteColor} from '../../../global/styleVariable'
 
-export const DefaultButton = styled.button
+export const DefaultButtonStyled = styled.button
     `
   background-color: ${props => props.active ? blackColor : whiteColor};
   color:${props => props.active ? whiteColor : blackColor};
@@ -12,4 +12,5 @@ export const DefaultButton = styled.button
   border: 1px solid #333;
   border-radius: .4rem;
   font-size: 1.6rem;
+  ${props=> props.css}
   `

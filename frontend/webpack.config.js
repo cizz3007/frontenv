@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CustomProgressBar = require('./progress.config');
 const chunkOption = require('./config/webpackChunk');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
 
 const envResult = require('dotenv').config({
   path: __dirname + '/.env'
@@ -18,13 +19,13 @@ try {
   const isDevMode = process.env.NODE_ENV === 'development';
 
   module.exports = {
-    stats    : isDevMode ? 'minimal':'verbose',
+    stats    : isDevMode ? 'minimal' : 'verbose',
     entry    : {
-      'app': ['@babel/polyfill', './index.js'],
+      'app': ['@babel/polyfill', './global/theme.js', './index.js'],
     },
     output   : {
       path         : path.join(__dirname, '../dist'),
-      filename     : isDevMode? '[name].bundle.js':'[name].bundle.[hash].js',
+      filename     : isDevMode ? '[name].bundle.js' : '[name].bundle.[hash].js',
       chunkFilename: "[id].[chunkhash].js",
       publicPath   : 'dist'
     },
@@ -38,22 +39,23 @@ try {
         '@apis'      : path.resolve(__dirname, './apis'),
         '@pages'     : path.resolve(__dirname, './pages'),
         '@components': path.resolve(__dirname, './components'),
-        '@images': path.resolve(__dirname, './images'),
+        '@images'    : path.resolve(__dirname, './images'),
+        '@store'    : path.resolve(__dirname, './store'),
       }
     },
     devServer: {
-      contentBase: path.resolve(__dirname, '../'), //index.html의 위치
-      compress   : true,
-      host       : process.env.HOST,
-      port       : process.env.PORT,
-      hot        : true,
-      open       : false,
-      historyApiFallback:true,
-      inline:true,
-      before     : function (app, server) {
+      contentBase       : path.resolve(__dirname, '../'), //index.html의 위치
+      compress          : true,
+      host              : process.env.HOST,
+      port              : process.env.PORT,
+      hot               : true,
+      open              : false,
+      historyApiFallback: true,
+      inline            : true,
+      before            : function (app, server) {
         let _info = server.log.info;
       },
-      after      : function (app, server) {
+      after             : function (app, server) {
       }
     },
     module   : {
@@ -72,13 +74,13 @@ try {
           loader : "source-map-loader"
         },
         {
-          test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: 'url-loader',
+          test   : /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader : 'url-loader',
           options: {
-            name: '[hash:base64:8].[ext]',
+            name      : '[hash:base64:8].[ext]',
             publicPath: './dist/images/',
             outputPath: '../dist/images/',
-            limit: isDevMode ? 500000 : 500000, //1000000b = 1mb
+            limit     : isDevMode ? 500000 : 500000, //1000000b = 1mb
           }
         },
         // { //styled컴포넌트라 필요없지만 혹시 다른 라이브러리에서 필요할 수도 있으니깐 주석처리
@@ -105,7 +107,8 @@ try {
       new CustomProgressBar(),
       new webpack.DefinePlugin({
         'process.env'   : {
-          'MODE'                 : JSON.stringify(process.env.NODE_ENV),
+          'MODE'                 : JSON.stringify(process.env.MODE),
+          'NODE_ENV'             : JSON.stringify(process.env.NODE_ENV),
           'HOST'                 : JSON.stringify(process.env.HOST),
           'PORT'                 : JSON.stringify(process.env.PORT),
           'AUTHORIZATION'        : JSON.stringify(process.env.AUTHORIZATION),
@@ -133,10 +136,10 @@ try {
         title   : '트립비토즈',
       }),
       !isDevMode && new CleanWebpackPlugin({
-        dry: false,
-        verbose: true,
-        cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist/**/*')],
-        dangerouslyAllowCleanPatternsOutsideProject:true
+        dry                                        : false,
+        verbose                                    : true,
+        cleanOnceBeforeBuildPatterns               : [path.resolve(__dirname, '../dist/**/*')],
+        dangerouslyAllowCleanPatternsOutsideProject: true
       }),
     ].filter(Boolean),
     ...!isDevMode && chunkOption

@@ -1,40 +1,35 @@
 import React from 'react';
-import ResetStyle from "@global/resetStyle";
-import ModalDiv from '../components/atoms/div/modal/defaultModal'
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react'
+import configureStore from '../store/store'
+import Head from '../components/head'
+import RouterWrapper from '../components/router'
+import ErrorBoundary from '../components/error/errorReport'
+import ResetStyle from '../global/resetStyle'
+
+/*상태 변화시 마다 log 출력*/
+if (process.env.MODE === 'development') {
+  configureStore().store.subscribe(function (e) {
+    console.log('state trace :', store.getState());
+  });
+}
 
 class IndexPage extends React.PureComponent {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      active: false,
-      value : '',
-    }
-
-    this.onClickHandler = this.onClickHandler.bind(this)
-    this.onChange = this.onChange.bind(this)
-  }
-
-  onClickHandler() {
-    this.setState({
-      active: !this.state.active,
-    })
-  }
-
-  onChange(e) {
-    this.setState({
-      value:e.target.value,
-    })
-  }
-
   render() {
+    const store = configureStore().store;
+    const persistor = configureStore().persistor;
+
     return (
-        <>
-          <ResetStyle/>
-          <ModalDiv>
-          </ModalDiv>
-        </>
+        <ErrorBoundary>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <ResetStyle/>
+              <Head/>
+              <RouterWrapper/>
+            </PersistGate>
+          </Provider>
+        </ErrorBoundary>
     )
   }
 }

@@ -16,17 +16,17 @@ const ModalDiv = (props) => {
   const {
     style,
     children,
+    onclick,
   } = props;
 
   return (
       <ReactFocusLock>
-        <ModalStyled style={style}>
+        <ModalStyled css={style}>
           <div className={'inner'}>
-          sdfdsfsd
+            {children}
           </div>
-          {children}
         </ModalStyled>
-        <ScreenBlockDiv onClick={()=>{alert('!')}} theme={false}/>
+        <ScreenBlockDiv onClick={onclick} theme={false}/>
       </ReactFocusLock>
   )
 }
