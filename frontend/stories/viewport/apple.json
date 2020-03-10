@@ -1,0 +1,93 @@
+{
+  "iphone6": {
+    "name": "아이폰 6, 6s",
+    "styles": {
+      "width": "375px",
+      "height": "667px"
+    }
+  },
+  "iphone7": {
+    "name": "아이폰 7, 아이폰 8",
+    "styles": {
+      "width": "375px",
+      "height": "667px"
+    }
+  },
+  "iphone678plus": {
+    "name": "아이폰 6+, 6s+, 7+, 8+",
+    "styles": {
+      "width": "414px",
+      "height": "736px"
+    }
+  },
+  "iphone10": {
+    "name": "아이폰 X",
+    "styles": {
+      "width": "375px",
+      "height": "812px"
+    }
+  },
+  "iphoneXr": {
+    "name": "아이폰 XR",
+    "styles": {
+      "width": "414px",
+      "height": "896px"
+    }
+  },
+  "iphoneXS": {
+    "name": "아이폰 XS",
+    "styles": {
+      "width": "375px",
+      "height": "812px"
+    }
+  },
+  "iphoneXSmax": {
+    "name": "아이폰 XS MAX",
+    "styles": {
+      "width": "414px",
+      "height": "896px"
+    }
+  },
+  "iphone11": {
+    "name": "아이폰 11",
+    "styles": {
+      "width": "414px",
+      "height": "896px"
+    }
+  },
+  "iphone11Pro": {
+    "name": "아이폰 11 Pro",
+    "styles": {
+      "width": "375px",
+      "height": "812px"
+    }
+  },
+  "iphone11proMax": {
+    "name": "아이폰 11 Pro MAX",
+    "styles": {
+      "width": "414px",
+      "height": "896px"
+    }
+  },
+  "ipad": {
+    "name": "아이패드",
+    "styles": {
+      "width": "600px",
+      "height": "963px"
+    }
+  },
+  "ipadMini": {
+    "name": "아이패드 미니",
+    "styles": {
+      "width": "768px",
+      "height": "1024px"
+    }
+  },
+  "ipadPro": {
+    "name": "아이패드 프로",
+    "styles": {
+      "width": "1024px",
+      "height": "1366px"
+    }
+  }
+}

@@ -7,7 +7,8 @@
     "test": "echo '스크립트 test 실행' && exit 0",
     "start": "cd frontend && cross-env NODE_ENV=development webpack-dev-server",
     "build": "cd frontend && cross-env NODE_ENV=development webpack --mode=development && exit 0",
-    "product": "cd frontend && cross-env NODE_ENV=production webpack --mode=production && exit 0"
+    "product": "cd frontend && cross-env NODE_ENV=production webpack --mode=production && exit 0",
+    "story": "cd frontend && npm run storybook\n"
   },
   "repository": {
     "type": "git",

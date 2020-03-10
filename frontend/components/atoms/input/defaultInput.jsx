@@ -1,6 +1,11 @@
 import React from 'react';
-import DefaultInputStyle from '@components/atoms/input/styled'
+import DefaultInputStyle from '../input/styled'
 import PropsTypes from 'prop-types';
+import { font, palette } from 'styled-theme'
+import { ifProp } from 'styled-tools';
+
+//https://github.com/diegohaz/styled-tools
+//https://github.com/diegohaz/styled-theme
 
 export const InputType = {
   PASSWORD       : 'password',

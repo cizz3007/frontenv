@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {aLinkHoverColor, defaultInputColor} from '@global/styleVariable';
+import {aLinkHoverColor, defaultInputColor} from '../../../global/styleVariable';
 
 const DefaultInputStyle = styled.input`
     min-width: 130px;

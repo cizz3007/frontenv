@@ -35,12 +35,16 @@ try {
     resolve  : {
       extensions: [".ts", ".tsx", ".js", ".json", '.jsx'],
       alias     : {
+        '@': path.resolve(__dirname, './'),
         '@global'    : path.resolve(__dirname, './global'),
         '@apis'      : path.resolve(__dirname, './apis'),
         '@pages'     : path.resolve(__dirname, './pages'),
         '@components': path.resolve(__dirname, './components'),
         '@images'    : path.resolve(__dirname, './images'),
         '@store'    : path.resolve(__dirname, './store'),
+        '@atoms' :path.resolve(__dirname,'./components/atoms'),
+        '@molecules' :path.resolve(__dirname,'./components/molecules'),
+        '@organisms' :path.resolve(__dirname,'./components/organisms'),
       }
     },
     devServer: {

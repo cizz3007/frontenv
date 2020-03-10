@@ -1,0 +1,16 @@
+{
+  "kindleFire2": {
+    "name": "킨들 파이어 2",
+    "styles": {
+      "width": "600px",
+      "height": "963px"
+    }
+  },
+  "kindleFireHD": {
+    "name": "킨들 파이어 HD",
+    "styles": {
+      "width": "533px",
+      "height": "801px"
+    }
+  }
+}

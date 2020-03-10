@@ -18,7 +18,7 @@ const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION?.();
 const persistConfig = {
   key      : 'root',
   storage  : storage,
-  whitelist: ['clientStatusReducer'], //clientIdx를 보존해야 함(일일이 서버에서 가져오지 않아도 됨)
+  whitelist: ['clientStatusReducer'], //user unique ID를 가지고 있는 리듀서를 저장한다.
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer(history));

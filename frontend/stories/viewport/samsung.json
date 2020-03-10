@@ -1,0 +1,23 @@
+{
+  "galaxyFold": {
+    "name": "갤럭시 폴드(최소 너비)",
+    "styles": {
+      "width": "220px",
+      "height": "1536px"
+    }
+  },
+  "galaxyNote10": {
+    "name": "갤럭시 노트 10, 노트 10+",
+    "styles": {
+      "width": "412px",
+      "height": "869px"
+    }
+  },
+  "galaxyS9": {
+    "name": "갤럭시 9, 9+",
+    "styles": {
+      "width": "360px",
+      "height": "740px"
+    }
+  }
+}

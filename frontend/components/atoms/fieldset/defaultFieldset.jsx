@@ -1,9 +1,12 @@
 import React from 'react';
 import {FieldsetStyled} from './styled'
 import PropTypes from 'prop-types';
-
+/**
+ * Use `Badge` to highlight key info with a predefined status.
+ */
 const Fieldset = (props) => {
   const {
+    className,
     children,
     form,
     name,
@@ -23,5 +26,14 @@ Fieldset.prototypes = {
   form    : PropTypes.string,
   name    : PropTypes.string,
   disabled: PropTypes.any,
+}
+/**
+ * Component descriptiondd
+ */
+Fieldset.defaultProps = {
+  name:null,
+  form:null,
+  disabled:false,
+  children:null,
 }
 export default Fieldset;
