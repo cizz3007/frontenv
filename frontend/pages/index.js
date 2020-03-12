@@ -6,7 +6,7 @@ import Head from '../components/head'
 import RouterWrapper from '../components/router'
 import ErrorBoundary from '../components/error/errorReport'
 import ResetStyle from '../global/resetStyle'
-import PageRenderer from '@pages/layout'
+import PageRenderer from '@pages/render'
 
 class IndexPage extends React.PureComponent {
 

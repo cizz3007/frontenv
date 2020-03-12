@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CustomProgressBar = require('./progress.config');
 const chunkOption = require('./config/webpackChunk');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+
 const merge = require('webpack-merge');
 
 const envResult = require('dotenv').config({
@@ -140,6 +142,12 @@ try {
         },
         template: './template.html',
         title   : '트립비토즈',
+      }),
+      new ImageminPlugin({
+        disable: isDevMode, // Disable during development
+        pngquant: {
+          quality: '95-100'
+        }
       }),
       !isDevMode && new CleanWebpackPlugin({
         dry                                        : false,

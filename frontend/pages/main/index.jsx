@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {OPEN_MODAL} from '@/reducer/modal'
-import Layout from '@pages/layout'
+import Layout from '@pages/render'
 import {Link, NavLink} from 'react-router-dom'
 import Button from '@atoms/button/defaultButton'
 import {SET_USER_LANGUAGE} from '@/reducer/user'

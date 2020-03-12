@@ -19,6 +19,7 @@ module.exports = (api) => {
       }
     ],
   ];
+
   if(!isDev) plugins.push('babel-plugin-transform-remove-console')
 
   return {

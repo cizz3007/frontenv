@@ -12,11 +12,12 @@ const customViewports = {
 };
 
 addParameters({
-  viewport: {viewports: customViewports},
+  viewport   : {viewports: customViewports},
   backgrounds: [
-    { name: 'twitter', value: '#00aced' },
-    { name: 'facebook', value: '#3b5998' },
-    { name:'google', value:"tomato", default:true}
+    {name: '#fff', value: '#fff', default: true},
+    {name: 'twitter', value: '#00aced'},
+    {name: 'facebook', value: '#3b5998'},
+    {name: 'google', value: "tomato"}
   ],
 });
 

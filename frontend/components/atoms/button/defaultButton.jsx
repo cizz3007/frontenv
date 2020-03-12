@@ -6,11 +6,12 @@ export const ButtonType = {
   BUTTON: 'button',
   RESET : 'reset',
   SUBMIT: 'submit',
+  CLOSE : 'close',
 }
 
 export const ButtonTheme = {
   DEFAULT: 'default',
-  TTBB: 'ttbb',
+  TTBB   : 'ttbb',
 }
 
 const Button = (props) => {
@@ -22,7 +23,8 @@ const Button = (props) => {
     disabled,
     active,
     style,
-    className
+    className,
+    tabIndex
   } = props
 
   return (
