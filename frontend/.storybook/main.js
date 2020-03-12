@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   webpackFinal: async (config, { configType }) => {
-    //와 스트레스
     config.resolve.alias = Object.assign(config.resolve.alias,{
       '@': path.resolve(__dirname, '../'),
       '@components': path.resolve(__dirname, '../components'),
@@ -12,6 +11,7 @@ module.exports = {
       '@images'    : path.resolve(__dirname, '../images'),
       '@atoms'    : path.resolve(__dirname, '../components/atoms'),
       '@molecules'    : path.resolve(__dirname, '../components/molecules'),
+      '@languages' :path.resolve(__dirname,'../languages'),
     })
     return config;
   },

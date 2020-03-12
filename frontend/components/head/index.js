@@ -36,6 +36,33 @@ const Head = (props) => {
           {/*<meta name="twitter:player:width" content="1280"/>*/}
           {/*<meta name="twitter:player:height" content="720"/>*/}
 
+          <link rel="apple-touch-startup-image" href="/launch.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-640x1136.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-750x1334.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-1242x2208.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-1242x2688.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-828x1792.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-1125x2436.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-1668x2388.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-1668x2224.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-1536x2048.png"/>
+          <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-2048x2732.png"/>
+          <link rel="apple-touch-icon" sizes="57x57" href="/favicon/
+          "/>
+          <link rel="apple-touch-icon" sizes="60x60" href="/favicon/icon-60.png"/>
+          <link rel="apple-touch-icon" sizes="72x72" href="/favicon/icon-72.png"/>
+          <link rel="apple-touch-icon" sizes="76x76" href="/favicon/icon-76.png"/>
+          <link rel="apple-touch-icon" sizes="114x114" href="/favicon/icon-114.png"/>
+          <link rel="apple-touch-icon" sizes="120x120" href="/favicon/icon-120.png"/>
+          <link rel="apple-touch-icon" sizes="144x144" href="/favicon/icon-144.png"/>
+          <link rel="apple-touch-icon" sizes="152x152" href="/favicon/icon-152.png"/>
+          <link rel="apple-touch-icon" sizes="167x167" href="/favicon/icon-167.png"/>
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/icon-180.png"/>
+          <meta name="apple-mobile-web-app-title" content="AppTitle"/>
+          <meta name="apple-mobile-web-app-capable" content="yes"/>
+          <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+          <meta name="apple-touch-fullscreen" content="yes"/>
+
           <meta property="og:title" content={title || Head.defaultState.title}/>
           <meta property="og:description" content={description || Head.defaultState.description}/>
           <meta property="og:type" content={'website'}/>
@@ -58,16 +85,7 @@ const Head = (props) => {
           <meta name="msapplication-TileColor" content="#da532c"/>
           <meta name="msapplication-TileImage" content="/favicon/icon-144.png"/>
           <meta name="google-signin-client_id" content={''}/>
-          <link rel="apple-touch-icon" sizes="57x57" href="/favicon/icon-57.png"/>
-          <link rel="apple-touch-icon" sizes="60x60" href="/favicon/icon-60.png"/>
-          <link rel="apple-touch-icon" sizes="72x72" href="/favicon/icon-72.png"/>
-          <link rel="apple-touch-icon" sizes="76x76" href="/favicon/icon-76.png"/>
-          <link rel="apple-touch-icon" sizes="114x114" href="/favicon/icon-114.png"/>
-          <link rel="apple-touch-icon" sizes="120x120" href="/favicon/icon-120.png"/>
-          <link rel="apple-touch-icon" sizes="144x144" href="/favicon/icon-144.png"/>
-          <link rel="apple-touch-icon" sizes="152x152" href="/favicon/icon-152.png"/>
-          <link rel="apple-touch-icon" sizes="167x167" href="/favicon/icon-167.png"/>
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/icon-180.png"/>
+
           <link rel="icon" type="image/png" href="/favicon/icon-16.png" sizes="16x16"/>
           <link rel="icon" type="image/png" href="/favicon/icon-32.png" sizes="32x32"/>
           <link rel="icon" type="image/png" href="/favicon/icon-96.png" sizes="96x96"/>
@@ -82,7 +100,7 @@ const Head = (props) => {
   )
 }
 
-Head.defaultState = {
+Head.defaultProps = {
   title      : '트립비토즈',
   description: '1,940만 명 국민카드 고객 전용 자유여행 플랫폼 - 티티비비 TTBB',
   keyword    : ['호텔 예약, 항공권, 액티비티 예약, 여행 일정 추천, 카드사 할인, 최저가 예약, 티티비비 (TTBB)'],

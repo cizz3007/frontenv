@@ -10,13 +10,7 @@ export const ButtonType = {
 
 export const ButtonTheme = {
   DEFAULT: 'default',
-  ROUNDED: 'rounded',
-}
-
-export const ButtonSize = {
-  SMALL : 'small',
-  MEDIUM: 'medium',
-  LARGE : 'large',
+  TTBB: 'ttbb',
 }
 
 const Button = (props) => {
@@ -24,29 +18,33 @@ const Button = (props) => {
     type,
     onClick,
     theme,
-    size,
     children,
-    classname,
     disabled,
     active,
     style,
+    className
   } = props
 
   return (
-      <DefaultButtonStyled type={type} onClick={onClick} disabled={disabled} active={active} css={style}>
+      <DefaultButtonStyled type={type} className={className} onClick={onClick} disabled={disabled} active={active} css={style}>
         {children}
       </DefaultButtonStyled>
   )
 }
 
 Button.propTypes = {
-  type     : PropTypes.string.isRequired,
-  theme    : PropTypes.string.isRequired,
-  size     : PropTypes.string.isRequired,
+  type     : PropTypes.string,
+  theme    : PropTypes.string,
   onClick  : PropTypes.func,
-  children : PropTypes.node.isRequired,
+  children : PropTypes.node,
   classname: PropTypes.string,
   disabled : PropTypes.bool
+}
+
+Button.defaultProps = {
+  type    : ButtonType.BUTTON,
+  theme   : ButtonTheme.DEFAULT,
+  disabled: false,
 }
 
 export default Button

@@ -1,4 +1,4 @@
-import Main from '../../../pages/main'
+import Main from '@pages/main'
 import React from 'react';
 import {Route} from 'react-router';
 

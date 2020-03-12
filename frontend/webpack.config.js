@@ -21,7 +21,7 @@ try {
   module.exports = {
     stats    : isDevMode ? 'minimal' : 'verbose',
     entry    : {
-      'app': ['@babel/polyfill', './global/theme.js', './index.js'],
+      'app': ['@babel/polyfill', './global/prototype.js', './index.jsx'],
     },
     output   : {
       path         : path.join(__dirname, '../dist'),
@@ -45,6 +45,8 @@ try {
         '@atoms' :path.resolve(__dirname,'./components/atoms'),
         '@molecules' :path.resolve(__dirname,'./components/molecules'),
         '@organisms' :path.resolve(__dirname,'./components/organisms'),
+        '@languages' :path.resolve(__dirname,'./languages'),
+        '@style':path.resolve(__dirname,'./style')
       }
     },
     devServer: {

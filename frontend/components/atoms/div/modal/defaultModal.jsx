@@ -1,14 +1,15 @@
 import React from 'react';
-import {ModalStyled} from './modalStyle';
+import {ModalStyled, ModalStyledInner} from './modalStyle';
 import ReactFocusLock from 'react-focus-lock'
 import ScreenBlockDiv, {ScreenBlockTheme} from '../screen/screenBlockDiv'
 
 export const ModalType = {
-  CENTER: 'center',
-  BOTTOM: 'bottom',
-  TOP   : 'top',
-  LEFT  : 'left',
-  RIGHT : 'right',
+  DEFAULT: 'default',
+}
+
+export const ModalTheme = {
+  DEFAULT: 'default',
+  TTBB   : 'ttbb',
 }
 
 const ModalDiv = (props) => {
@@ -16,17 +17,22 @@ const ModalDiv = (props) => {
   const {
     style,
     children,
-    onclick,
+    onClick,
+    id,
+    type,
+    theme
   } = props;
 
   return (
       <ReactFocusLock>
-        <ModalStyled css={style}>
-          <div className={'inner'}>
+        <ModalStyled css={style}
+                     ref={id}
+                     theme={theme}>
+          <ModalStyledInner>
             {children}
-          </div>
+          </ModalStyledInner>
         </ModalStyled>
-        <ScreenBlockDiv onClick={onclick} theme={false}/>
+        <ScreenBlockDiv onClick={onClick} theme={false}/>
       </ReactFocusLock>
   )
 }

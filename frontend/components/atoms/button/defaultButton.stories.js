@@ -1,6 +1,6 @@
 import {storiesOf} from '@storybook/react'
 import React from 'react';
-import H1 from '../title/defaultTitle'
+import H1 from '../typography/h1'
 import {withKnobs, text, boolean} from '@storybook/addon-knobs';
 import Button from './defaultButton'
 import {action} from '@storybook/addon-actions'

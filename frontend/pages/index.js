@@ -6,13 +6,7 @@ import Head from '../components/head'
 import RouterWrapper from '../components/router'
 import ErrorBoundary from '../components/error/errorReport'
 import ResetStyle from '../global/resetStyle'
-
-/*상태 변화시 마다 log 출력*/
-if (process.env.MODE === 'development') {
-  configureStore().store.subscribe(function (e) {
-    console.log('state trace :', store.getState());
-  });
-}
+import PageRenderer from '@pages/layout'
 
 class IndexPage extends React.PureComponent {
 
@@ -24,9 +18,11 @@ class IndexPage extends React.PureComponent {
         <ErrorBoundary>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-              <ResetStyle/>
-              <Head/>
-              <RouterWrapper/>
+              <PageRenderer>
+                <ResetStyle/>
+                <Head/>
+                <RouterWrapper/>
+              </PageRenderer>
             </PersistGate>
           </Provider>
         </ErrorBoundary>

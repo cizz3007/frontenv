@@ -23,8 +23,9 @@ const hint_field = '#0f77dd';
 const alert_red = '#ea003e';
 const trip_advisor_green_teal = '#0fb18c';
 const trip_btoz_wheat = '#f8e08e';
-const trip_btoz_pale_purple = '#c98bdb';
+const palePurple = '#c98bdb';
 const trip_btoz_new_main_pink = '#f65875';
+const warmPink = '#f65875';
 const rosa_mouse_over = '#ff8ba4';
 const lipstick_pressed = '#be1d4a';
 const naver_signature = '#32b31a';
@@ -35,12 +36,17 @@ const pantone3242cThin = '#bfefec';
 const pantonePink = '#ffd1dc';
 const pantoneRed032c = '#EF3340';
 const pantone7506c = '#fdf3e5';
+const kbYellow = '#ffbc00';
 
 export const whiteColor = white;
 export const blackColor = black;
 export const defaultInputColor = pantonePink;
 export const aLinkHoverColor = sapphire;
 export const disabledColor = brown_grey;
+export const borderThinColor = very_light_gray_one;
+export const warmPinkColor = warmPink;
+export const palePurpleColor = palePurple;
+export const kbYellowColor = kbYellow;
 
 // 폰트 크기
 const font_size_base = 1.0;
@@ -52,13 +58,13 @@ const font_size_medium = font_size_base + (font_size_gap) + rem;
 const font_size_small = font_size_base - (font_size_gap) + rem;
 
 // 폰트 굵기
-const font_weight_lightest = 100;
-const font_weight_lighter = 200;
-const font_weight_light = 300;
-const font_weight_normal = 500;
-const font_weight_bold = 600;
-const font_weight_bolder = 700;
-const font_weight_boldest = 800;
+export const fontWeightLightest = 100;
+export const fontWeightLighter = 200;
+export const fontWeightLight = 300;
+export const fontWeightNormal = 500;
+export const fontWeightBold = 600;
+export const fontWeightBolder = 700;
+export const fontWeightBoldest = 800;
 
 //Z-index 우선순위
 export const zIndex_bottom = -1;//hide
