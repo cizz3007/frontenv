@@ -13,7 +13,7 @@ export const sagaMiddleware = createSagaMiddleware()
 const isDev = process.env.NODE_ENV;
 
 //리덕스 개발툴
-const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION?.();
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__?.();
 
 const persistConfig = {
   key      : 'root',
@@ -24,6 +24,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer(history));
 
 export default (preloadedState) => {
+
   const store = createStore(
       persistedReducer,
       preloadedState,
@@ -35,8 +36,6 @@ export default (preloadedState) => {
           isDev && reduxDevTools && window.navigator.userAgent.includes('Chrome') ? reduxDevTools : compose
       )
   );
-
-  
 
   let persistor = persistStore(store);
 

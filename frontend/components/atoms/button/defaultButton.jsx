@@ -28,7 +28,7 @@ const Button = (props) => {
   } = props
 
   return (
-      <DefaultButtonStyled type={type} className={className} onClick={onClick} disabled={disabled} active={active} css={style}>
+      <DefaultButtonStyled type={type} className={className} onClick={onClick} disabled={disabled} active={active}  css={style}>
         {children}
       </DefaultButtonStyled>
   )
@@ -40,7 +40,7 @@ Button.propTypes = {
   onClick  : PropTypes.func,
   children : PropTypes.node,
   classname: PropTypes.string,
-  disabled : PropTypes.bool
+  disabled : PropTypes.bool,
 }
 
 Button.defaultProps = {

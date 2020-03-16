@@ -13,6 +13,10 @@ export const BreakPoint = {
   desktopDefault: 1920,
 }
 
+/**
+* @BreakPoint :
+* @description: 미디어쿼리
+* */
 export default Object.keys(BreakPoint).reduce((acc, label) => {
   acc[label] = (...args) => css`
       @media only screen and (max-width: ${BreakPoint[label]}px) {

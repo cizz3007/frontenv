@@ -3,9 +3,23 @@ import {createGlobalStyle} from "styled-components";
 const ResetStyle = createGlobalStyle`
     @font-face {
       font-family: 'Noto Sans Korean';
-      src: local('Noto Sans Light'), local('NotoSans-Light'),
-      url(/fonts/NotoSansKR-Light.woff) format('woff');
+      src: local(/fonts/NotoSansKR-Light-Hestia.woff), local(/fonts/NotoSansKR-Light-Hestia.woff),
+      url(/fonts/NotoSansKR-Light-Hestia.woff) format('woff');
       font-weight: 300;
+    }
+    
+    @font-face {
+      font-family: 'Noto Sans Korean';
+      src: local(/fonts/NotoSansKR-Medium-Hestia.woff), local(/fonts/NotoSansKR-Medium-Hestia.woff),
+      url(/fonts/NotoSansKR-Medium-Hestia.woff) format('woff');
+      font-weight: 500;
+    }
+    
+    @font-face {
+      font-family: 'Noto Sans Korean';
+      src: local(/fonts/NotoSansKR-Bold-Hestia.woff), local(/fonts/NotoSansKR-Bold-Hestia.woff),
+      url(/fonts/NotoSansKR-Bold-Hestia.woff) format('woff');
+      font-weight: 700;
     }
     
     .lang-ko {
@@ -26,7 +40,7 @@ const ResetStyle = createGlobalStyle`
     
     html, body {
       font-family: "Noto Sans Korean", system, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "애플 SD 산돌고딕 Neo", Sans-serif, serif;
-      font-size: 10.0px; //단위를 rem을 쓸 것이다. 최상단에 10.0으로 한다. 계산 편하게..
+      font-size: 10.0px;
       width: 100%;
       background-color: #fff;
       height: 100%;

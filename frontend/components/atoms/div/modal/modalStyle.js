@@ -27,6 +27,12 @@ export const ModalStyledTop = styled.div`
       padding:1.6rem 3.6rem;
   `}
 `
+// Adapting based on props
+const PropsBox = styled.div(props => ({
+  background: props.background,
+  height: '50px',
+  width: '50px'
+}));
 
 export const ModalStyledMiddle = styled.div`
   position: relative;

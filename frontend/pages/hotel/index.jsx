@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {OPEN_MODAL} from '@/reducer/modal'
-import Layout from '@pages/render'
+
 class HotelPage extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -38,4 +38,6 @@ const mapDispatchToProps = (dispatch) => {
     }),
   }
 };
+
+
 export default connect(null, mapDispatchToProps)(HotelPage);

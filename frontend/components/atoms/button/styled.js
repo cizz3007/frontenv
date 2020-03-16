@@ -18,6 +18,7 @@ export const DefaultButtonStyled = styled.button`
   //border: 1px solid #333;
   //border-radius: .4rem;
   //font-size: 1.6rem;
+  
   ${props=> props.css}
   ${props=> props.theme === ''}
 `

@@ -6,7 +6,7 @@ import {Link, NavLink} from 'react-router-dom'
 import Button from '@atoms/button/defaultButton'
 import {SET_USER_LANGUAGE} from '@/reducer/user'
 import {LANGUAGE_TEXT_RESELECTOR} from '@/reselect/language'
-import Title from '@atoms/typography/title/defaultTitle'
+import Title from '@atoms/typography/title'
 import Span, {SpanTheme} from '@atoms/span/defaultSpan'
 
 class Main extends React.PureComponent {
@@ -38,27 +38,760 @@ class Main extends React.PureComponent {
     const{
       TEXT
     } = this.props;
+
+
     return (
         <section>
           <h1> 인덱스 페이지</h1>
-          <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
-          <NavLink to={'/user'}>유저 페이지 이동</NavLink>
-          <Button onClick={this.action}>페이송로드 전송</Button>
-          <Button onClick={() => {
-            this.changeLang('ko')
-          }}>한국어 변경</Button>
-          <Button onClick={() => {
-            this.changeLang('en')
-          }}>영어 변경</Button>
-          <Button onClick={() => {
-            this.changeLang('ja')
-          }}>일본어 변경</Button>
-          <Button onClick={() => {
-            this.changeLang('zh')
-          }}>중국어 변경</Button>
-
+          <ul>
+            <li>
+              <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li> <li>
+            <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+          </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li>
+            <li>
+              <NavLink to={'/hotel'}>호텔 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/user'}>유저 페이지 이동</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/detail'}>디테일 페이지 이동</NavLink>
+            </li>
+            <li>
+              <Button onClick={this.action}>페이로드 전송</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ko')
+              }}>한국어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('en')
+              }}>영어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('ja')
+              }}>일본어 변경</Button>
+            </li>
+            <li>
+              <Button onClick={() => {
+                this.changeLang('zh')
+              }}>중국어 변경</Button>
+            </li>
+          </ul>
           <Title>{TEXT.test}</Title>
-
           <Span theme={SpanTheme.TTBB}>테스트</Span>
           <Span theme={SpanTheme.DEFAULT}>테스트2</Span>
         </section>

@@ -3,7 +3,7 @@ import ModalDiv, {ModalTheme, ModalType} from '@atoms/div/modal/defaultModal'
 import Button, {ButtonType} from '@atoms/button/defaultButton'
 import {connect} from 'react-redux';
 import {debounce} from 'lodash';
-import Title, {TitleTheme} from '@atoms/typography/title/defaultTitle'
+import Heading , {HeadingTheme, HeadingType} from '@atoms/typography/title'
 import Paragraph, {ParagraphTheme} from '@atoms/typography/paragraph/defaultParagraph'
 import {ModalStyledBottom, ModalStyledButton, ModalStyledMiddle, ModalStyledTop} from '@atoms/div/modal/modalStyle'
 import {INIT_MODAL, OPEN_MODAL} from '@/reducer/modal'
@@ -63,7 +63,7 @@ class GlobalErrorModal extends React.PureComponent {
                   theme={ModalTheme.DEFAULT}
                   type={ModalType.DEFAULT}>
           <ModalStyledTop>
-            <Title theme={TitleTheme.MODAL}>{TEXT.title}</Title>
+            <Heading type={HeadingType.MEDIUM}>{TEXT.title}</Heading>
           </ModalStyledTop>
           <ModalStyledMiddle>
             <Paragraph theme={ParagraphTheme.MODAL}>{TEXT.description}</Paragraph>

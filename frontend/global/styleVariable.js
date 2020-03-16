@@ -10,6 +10,7 @@ import styled from 'styled-components';
 const white = '#fff';
 const black = '#222';
 const gray = '#e6e7ee';
+const grayBlue = '#686888';
 const indigo = '#0c1f3b';
 const warmGray = '#f0f0f0';
 const sapphire = '#3726af';
@@ -39,6 +40,7 @@ const pantone7506c = '#fdf3e5';
 const kbYellow = '#ffbc00';
 
 export const whiteColor = white;
+export const warmGrayColor = warmGray;
 export const blackColor = black;
 export const defaultInputColor = pantonePink;
 export const aLinkHoverColor = sapphire;
@@ -47,7 +49,7 @@ export const borderThinColor = very_light_gray_one;
 export const warmPinkColor = warmPink;
 export const palePurpleColor = palePurple;
 export const kbYellowColor = kbYellow;
-
+export const GrayBlueColor = grayBlue;
 // 폰트 크기
 const font_size_base = 1.0;
 const font_size_gap = 0.2;

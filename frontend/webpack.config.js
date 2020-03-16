@@ -5,6 +5,7 @@ const CustomProgressBar = require('./progress.config');
 const chunkOption = require('./config/webpackChunk');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const merge = require('webpack-merge');
 
@@ -37,18 +38,18 @@ try {
     resolve  : {
       extensions: [".ts", ".tsx", ".js", ".json", '.jsx'],
       alias     : {
-        '@': path.resolve(__dirname, './'),
+        '@'          : path.resolve(__dirname, './'),
         '@global'    : path.resolve(__dirname, './global'),
         '@apis'      : path.resolve(__dirname, './apis'),
         '@pages'     : path.resolve(__dirname, './pages'),
         '@components': path.resolve(__dirname, './components'),
         '@images'    : path.resolve(__dirname, './images'),
-        '@store'    : path.resolve(__dirname, './store'),
-        '@atoms' :path.resolve(__dirname,'./components/atoms'),
-        '@molecules' :path.resolve(__dirname,'./components/molecules'),
-        '@organisms' :path.resolve(__dirname,'./components/organisms'),
-        '@languages' :path.resolve(__dirname,'./languages'),
-        '@style':path.resolve(__dirname,'./style')
+        '@store'     : path.resolve(__dirname, './store'),
+        '@atoms'     : path.resolve(__dirname, './components/atoms'),
+        '@molecules' : path.resolve(__dirname, './components/molecules'),
+        '@organisms' : path.resolve(__dirname, './components/organisms'),
+        '@languages' : path.resolve(__dirname, './languages'),
+        '@style'     : path.resolve(__dirname, './style')
       }
     },
     devServer: {
@@ -60,6 +61,12 @@ try {
       open              : false,
       historyApiFallback: true,
       inline            : true,
+      proxy:{
+        '/api' : {
+          target: 'https://www.tripbtoz.com/',
+          changeOrigin : true
+        },
+      },
       before            : function (app, server) {
         let _info = server.log.info;
       },
@@ -73,13 +80,51 @@ try {
           loader : 'babel-loader',
           exclude: /node_modules/,
           options: {
-            rootMode: 'upward' //upward:root의 babel.config.js를 참조,없으면 에러 //default = root
+            rootMode: 'upward'
           }
         },
         {
           enforce: "pre",
           test   : /\.js$/,
           loader : "source-map-loader"
+        },
+        {
+          oneOf: [
+            {//global
+              test         : /\.(sa|sc|c)ss$/i,
+              resourceQuery: /^\?global$/,
+              use          : [
+                {
+                  loader: 'style-loader'
+                },
+                {
+                  loader: 'css-loader'
+                }
+              ]
+            },
+            { //local-css module
+              test: /\.(sa|sc|c)ss$/i,
+              use : [
+                {
+                  loader: 'style-loader'
+                },
+                {
+                  // For CSS modules
+                  loader : 'css-loader',
+                  options: {
+                    modules  : {
+                      mode          : 'local',
+                      localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                    },
+                    import   : true,
+                    url      : true,
+                    esModule : true,
+                    sourceMap: isDevMode,
+                  }
+                },
+              ]
+            },
+          ]
         },
         {
           test   : /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -91,24 +136,6 @@ try {
             limit     : isDevMode ? 500000 : 500000, //1000000b = 1mb
           }
         },
-        // { //styled컴포넌트라 필요없지만 혹시 다른 라이브러리에서 필요할 수도 있으니깐 주석처리
-        //   test: /\.(sa|sc|c)ss$/,
-        //   use : [
-        //     {
-        //       loader: 'style-loader'
-        //     },
-        //     {
-        //       loader : 'css-loader',
-        //       options: {
-        //         modules       : true,
-        //         localIdentName: '[hash:base64:11]',
-        //         namedexport   : true,
-        //         sourceMap     : true,
-        //         minimize      : true,
-        //       }
-        //     },
-        //   ]
-        // },
       ]
     },
     plugins  : [
@@ -144,10 +171,14 @@ try {
         title   : '트립비토즈',
       }),
       new ImageminPlugin({
-        disable: isDevMode, // Disable during development
+        disable : isDevMode, // Disable during development
         pngquant: {
           quality: '95-100'
         }
+      }),
+      new ManifestPlugin({
+        fileName:'assets.json',
+        basePath:path.resolve(__dirname,'../dist')
       }),
       !isDevMode && new CleanWebpackPlugin({
         dry                                        : false,
